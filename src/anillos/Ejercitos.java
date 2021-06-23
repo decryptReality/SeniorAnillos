@@ -14,6 +14,7 @@ public class Ejercitos
     Bestia[] bestias = {};
     Heroe[] heroes;
 
+    
     Bestia getBestia(int caso, int indice)
     {
         if(caso == 0)
@@ -52,7 +53,7 @@ public class Ejercitos
             heroes[i] = getHeroe(Extras.dado(2), i);
         }
     }
-    
+
     Ejercitos(int elementos)
     {
         this.elementos = elementos;
@@ -60,11 +61,83 @@ public class Ejercitos
         heroes = new Heroe[this.elementos];
     }
 
-    void turno(Bestia bestia, Heroe heroe)
+    int bestiasVivas()
+    {    
+        int vivos = 0;
+        for(int i = 0; i < elementos; i = i + 1)
+        {
+            if(0 < bestias[i].getVida())
+            {
+                vivos = vivos + 1;
+            }
+        }
+        return vivos;
+    }
+
+    int heroesVivos()
+    {
+        int vivos = 0;
+    
+        for(int i = 0; i < elementos; i = i + 1)
+        {
+            if(0 < heroes[i].getVida())
+            {
+                vivos = vivos + 1;
+            }
+        }
+        return vivos;
+    }
+
+    boolean ejecutar(boolean empiezaBestias)
+    {
+        int bestias = 0;
+        int heroes = 0;
+        while (bestias != 0 | heroes != 0)
+        {
+            if(empiezaBestias)
+            {
+                turno(true);
+                turno(false);
+            }
+            else
+            {
+                turno(false);
+                turno(true);
+            }
+            bestias = bestiasVivas();
+            heroes = heroesVivos();
+        }
+        return bestias > heroes ? true : false;
+    }
+
+    void turno(boolean esTurnoBestias)
+    {
+        if (esTurnoBestias)
+        {
+            for (int i = 0; i < elementos; i = i + 1) 
+            {
+                if(0 < heroes[i].getVida())
+                {
+                    heroes[i].danio(bestias[i]);
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < elementos; i = i + 1) 
+            {
+                if(0 < heroes[i].getVida())
+                {
+                    bestias[i].danio(heroes[i]);
+                }
+            }
+        }
+    }
+    void ataque(Bestia bestia, Heroe heroe)
     {
         heroe.danio(bestia);
     }
-    void turno(Heroe heroe, Bestia bestia)
+    void ataque(Heroe heroe, Bestia bestia)
     {
         bestia.danio(heroe);
     }

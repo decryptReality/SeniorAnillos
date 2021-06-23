@@ -2,6 +2,7 @@ package anillos;
 
 public class Personaje 
 {  
+
     protected String nombre;
     protected int vida;
     protected int resistencia;
@@ -29,5 +30,17 @@ public class Personaje
         {
             danio(personaje.ataque());
         }
+    }    
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public int getResistencia() {
+        return resistencia;
     }
 }
