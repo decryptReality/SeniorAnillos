@@ -1,0 +1,49 @@
+
+personaje
+	caracteristicas
+		nombre
+		vida: int
+			vida = vida - danio
+		resistensia: int
+			dado[60,70]
+		ataque
+			heroes
+				potencia = 2 tiro de dado(0,100), elegir valor mayor
+			bestias
+				potencia = 1 tiro de dado(0,90)
+		danio
+			SI potencia_atacante > resistensia
+				danio = potencia_atacante - resistensia
+		consideraciones espesificas
+			elfos
+				odian: orcos
+					potencia = potencia + dado[1,10]
+			hobbits
+				miedo: trasgos
+					danio = danio - 5
+			orcos
+				resistensia_oponente = resistensia_oponente - 0.10 * resistensia_oponente
+	categorias
+		heroes
+			tipos
+				elfos, 250 vida
+				hobbits, 200 vida
+				humanos, 180 vida
+		bestias
+			tipos
+				orcos, 300 vida
+				trasgos, 325 vida
+			
+juego
+	ejercitos
+		heroes
+		bestias
+	batalla
+		atacar personaje misma posicion
+
+
+
+
+
+
+
