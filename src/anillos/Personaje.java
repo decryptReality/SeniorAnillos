@@ -10,7 +10,7 @@ public class Personaje
     {
         this.nombre = nombre;
         this.vida = vida;
-        resistencia = Extras.dado(60, 70);
+        resistencia = Extras.dado(50, 70);
     }
 
     public int ataque()

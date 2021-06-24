@@ -13,7 +13,8 @@ public class Extras
 
     public static int dado(int inf, int sup)
     {
-        return random.nextInt(sup + 1) + inf;
+        int dif = sup - inf;
+        return inf + random.nextInt(dif);
     }
     public static int dado(int sup)
     {
