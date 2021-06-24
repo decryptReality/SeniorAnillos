@@ -8,5 +8,4 @@ public class Humano extends Heroe
     {
         super(nombre, 180);
     }
-    
 }

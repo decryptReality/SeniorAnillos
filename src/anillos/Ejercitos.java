@@ -120,9 +120,9 @@ public class Ejercitos
         System.out.println("Bestias vivas: " + bestiasVivas);
         System.out.println("Heroes vivos: " + heroesVivos);
 
-        String ganador = bestiasVivas > heroesVivos ? "bestias" : "heroes";
-        String empate = bestiasVivas == heroesVivos ? "empate" : ganador;
-        System.out.println("[?] Ganaron: " + empate);
+        String ganador1 = bestiasVivas > heroesVivos ? "bestias" : "heroes";
+        String ganador2 = bestiasVivas == heroesVivos ? "empate" : ganador1;
+        System.out.println("[?] Ganaron: " + ganador2);
     }
 
     void turnoBestia()

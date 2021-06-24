@@ -2,7 +2,6 @@ package anillos;
 
 public class Personaje 
 {  
-
     protected String nombre;
     protected int vida;
     protected int resistencia;
@@ -22,14 +21,16 @@ public class Personaje
     protected void danio(int ataque)
     {
         vida = vida - ataque;
-        System.out.println("[?] ("+ vida + ",-" + ataque + ") " + nombre);
+        System.out.println("  [!] ("+ vida + ",-" + ataque + ") " + nombre);
     }
 
     protected void danio(Personaje personaje)
     {
-        if(resistencia < personaje.ataque())
+        int ataque = personaje.ataque();
+        System.out.println("  (" + ataque + ") " + personaje.getNombre() + ", (" + resistencia + ") " + nombre);
+        if(resistencia < ataque)
         {
-            danio(personaje.ataque());
+            danio(ataque);
         }
     }    
 
