@@ -21,9 +21,13 @@ public class Heroe extends Personaje
     @Override
     protected void danio(Personaje personaje) 
     {
-        if((int)(0.90 * resistencia) < personaje.ataque() & personaje instanceof Orco)
+        if(personaje instanceof Orco & (int)(0.90 * resistencia) < personaje.ataque())
         {
             super.danio(personaje.ataque());
+        }
+        else
+        {
+            super.danio(personaje);
         }
     }
 }

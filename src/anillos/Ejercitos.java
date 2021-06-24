@@ -1,7 +1,5 @@
 package anillos;
 
-import java.util.Random;
-
 import anillos.bestias.Orco;
 import anillos.bestias.Trasgo;
 import anillos.heroes.Elfo;
@@ -14,7 +12,7 @@ public class Ejercitos
     Bestia[] bestias = {};
     Heroe[] heroes;
 
-    
+
     Bestia getBestia(int caso, int indice)
     {
         if(caso == 0)
@@ -59,6 +57,7 @@ public class Ejercitos
         this.elementos = elementos;
         bestias = new Bestia[this.elementos];
         heroes = new Heroe[this.elementos];
+        generarEjercitos();
     }
 
     int bestiasVivas()
@@ -116,9 +115,25 @@ public class Ejercitos
         {
             for (int i = 0; i < elementos; i = i + 1) 
             {
-                if(0 < heroes[i].getVida())
+                // si ambos tienen vida
+                if(0 < heroes[i].getVida() & 0 < bestias[i].getVida())
                 {
                     heroes[i].danio(bestias[i]);
+                }
+                else
+                {
+                    // si la bestia tiene vida y el heroe no
+                    if(0 < bestias[i].getVida())
+                    {
+                        // [i+1,elementos-1]
+                        for (int j = i + 1; j < elementos; j = j + 1) 
+                        {
+                            if (0 < heroes[j].getVida()) 
+                            {
+                                heroes[j].danio(bestias[i]);
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -126,13 +141,30 @@ public class Ejercitos
         {
             for (int i = 0; i < elementos; i = i + 1) 
             {
-                if(0 < heroes[i].getVida())
+                // si ambos tienen vida
+                if(0 < heroes[i].getVida() & 0 < bestias[i].getVida())
                 {
                     bestias[i].danio(heroes[i]);
+                }    
+                else 
+                {
+                    // si heroe tiene vida y bestia no
+                    if (0 < heroes[i].getVida()) 
+                    {
+                        // [i+1,elementos-1]
+                        for (int j = i + 1; j < elementos; j = j + 1) 
+                        {
+                            if (0 < bestias[j].getVida()) 
+                            {
+                                bestias[j].danio(bestias[i]);
+                            }
+                        }
+                    }
                 }
             }
         }
     }
+
     void ataque(Bestia bestia, Heroe heroe)
     {
         heroe.danio(bestia);
