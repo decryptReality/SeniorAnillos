@@ -5,7 +5,6 @@ import java.util.Scanner;
 
 public class Extras 
 {
-    private static Scanner scanner = new Scanner(System.in);
     private static Random random = new Random();
 
     public static int dado(int inf, int sup)

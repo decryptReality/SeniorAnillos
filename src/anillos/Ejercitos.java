@@ -13,13 +13,13 @@ public class Ejercitos
 
     public static void main(String[] args) 
     {
-        Ejercitos ejercitos = new Ejercitos(5);
+        Ejercitos ejercitos = new Ejercitos(3);
         ejercitos.turnos(true);
     }
 
     static Scanner scanner = new Scanner(System.in);
     int elementos;
-    Bestia[] bestias = {};
+    Bestia[] bestias;
     Heroe[] heroes;
 
     Ejercitos(int elementos)
@@ -84,7 +84,7 @@ public class Ejercitos
         int salir = 0;
         int bestiasVivas = elementos;
         int heroesVivos = elementos;
-        while(bestiasVivas != 0 | heroesVivos != 0 & salir != -1)
+        while(bestiasVivas != 0 & heroesVivos != 0 & salir != -1)
         {
             if (empiezaBestia) 
             {
@@ -119,8 +119,10 @@ public class Ejercitos
         }
         System.out.println("Bestias vivas: " + bestiasVivas);
         System.out.println("Heroes vivos: " + heroesVivos);
+
         String ganador = bestiasVivas > heroesVivos ? "bestias" : "heroes";
-        System.out.println("[?] Ganaron: " + ganador);
+        String empate = bestiasVivas == heroesVivos ? "empate" : ganador;
+        System.out.println("[?] Ganaron: " + empate);
     }
 
     void turnoBestia()
