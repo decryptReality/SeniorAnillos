@@ -37,6 +37,16 @@ public class Ejercitos
             bestias[i] = generarBestia(Extras.dado(1), i);
             heroes[i] = generarHeroe(Extras.dado(2), i);
         }
+        System.out.println("[?] Ejercito de bestias:");
+        for(int i = 0; i < elementos; i = i + 1)
+        {
+            System.out.println("(" + bestias[i].getVida() +","+ bestias[i].getResistencia() + ") " + bestias[i].getNombre());
+        }
+        System.out.println("\n[?] Ejercito de heroes:");
+        for(int i = 0; i < elementos; i = i + 1)
+        {
+            System.out.println("(" + heroes[i].getVida() +","+ heroes[i].getResistencia() + ") " + heroes[i].getNombre());
+        }
     }
 
     Bestia generarBestia(int caso, int indice)
@@ -74,15 +84,17 @@ public class Ejercitos
         int salir = 0;
         int bestiasVivas = elementos;
         int heroesVivos = elementos;
-        while(0 != bestiasVivas | 0 != heroesVivos | -1 != salir)
+        while(bestiasVivas != 0 | heroesVivos != 0 & salir != -1)
         {
             if (empiezaBestia) 
             {
+                System.out.println("\n[?] Turno de ejercito de bestias");
                 turnoBestia();
                 bestiasVivas = bestiasVivas();
                 heroesVivos = heroesVivos();
                 if(0 != bestiasVivas | 0 != heroesVivos)
                 {
+                    System.out.println("\n[?] Turno de ejercito de heroes");
                     turnoHeroe();
                     bestiasVivas = bestiasVivas();
                     heroesVivos = heroesVivos();
@@ -90,11 +102,13 @@ public class Ejercitos
             } 
             else 
             {
+                System.out.println("[?] Turno de ejercito de heroes");
                 turnoHeroe();
                 bestiasVivas = bestiasVivas();
                 heroesVivos = heroesVivos();
                 if(0 != bestiasVivas | 0 != heroesVivos)
                 {
+                    System.out.println("[?] Turno de ejercito de bestias");
                     turnoBestia();
                     bestiasVivas = bestiasVivas();
                     heroesVivos = heroesVivos();
@@ -116,6 +130,7 @@ public class Ejercitos
             // si ambos tienen vida
             if(0 < bestias[i].getVida() & 0 < heroes[i].getVida())
             {
+                System.out.println(bestias[i].getNombre() + " ataca a " + heroes[i].getNombre());
                 // heroe rescibe danio de bestia
                 heroes[i].danio(bestias[i]);
             }
@@ -129,6 +144,7 @@ public class Ejercitos
                     {
                         if (0 < heroes[j].getVida()) 
                         {
+                            System.out.println(bestias[i].getNombre() + " ataca a " + heroes[j].getNombre());
                             // y se ataca
                             heroes[j].danio(bestias[i]);
                             break;
@@ -146,6 +162,7 @@ public class Ejercitos
             // si ambos tienen vida
             if(0 < heroes[i].getVida() & 0 < bestias[i].getVida())
             {
+                System.out.println(heroes[i].getNombre() + " ataca a " + bestias[i].getNombre());
                 // bestia recibe danio de heroe
                 bestias[i].danio(heroes[i]);
             }    
@@ -159,6 +176,7 @@ public class Ejercitos
                     {
                         if (0 < bestias[j].getVida()) 
                         {
+                            System.out.println(heroes[i].getNombre() + " ataca a " + bestias[j].getNombre());
                             // bestia recibe danio de heroe
                             bestias[j].danio(heroes[i]);
                             break;

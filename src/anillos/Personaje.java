@@ -22,6 +22,7 @@ public class Personaje
     protected void danio(int ataque)
     {
         vida = vida - ataque;
+        System.out.println("[?] ("+ vida + ",-" + ataque + ") " + nombre);
     }
 
     protected void danio(Personaje personaje)
