@@ -27,7 +27,7 @@ public class Personaje
     protected void danio(Personaje personaje)
     {
         int ataque = personaje.ataque();
-        System.out.println("  (" + ataque + ") " + personaje.getNombre() + ", (" + resistencia + ") " + nombre);
+        System.out.println("  " + personaje.getNombre() + ": " + ataque + ", " + nombre + ": " + resistencia);
         if(resistencia < ataque)
         {
             danio(ataque);

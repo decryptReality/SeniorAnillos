@@ -19,6 +19,7 @@ public class Orco extends Bestia
         if(personaje instanceof Elfo)
         {
             int ataqueElfo = Extras.dado(1,10) + personaje.ataque();
+            System.out.println("  " + personaje.getNombre() + ": " + ataqueElfo + ", " + nombre + ": " + resistencia);
             if(resistencia < ataqueElfo)
             {
                 danio(ataqueElfo);

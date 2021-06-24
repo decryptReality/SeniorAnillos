@@ -25,7 +25,7 @@ public class Heroe extends Personaje
         if(personaje instanceof Orco)
         {
             int ataqueOrco = personaje.ataque();
-            System.out.println("  (" + ataqueOrco + ") " + personaje.getNombre() + ", (" + resistencia + ") " + nombre);
+            System.out.println("  " + personaje.getNombre() + ": " + ataqueOrco + ", " + nombre + ": " + resistencia);
             if((int)(0.90 * resistencia) < ataqueOrco)
             {
                 super.danio(ataqueOrco);

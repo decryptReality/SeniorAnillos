@@ -10,13 +10,6 @@ import anillos.heroes.Humano;
 
 public class Ejercitos 
 {
-
-    public static void main(String[] args) 
-    {
-        Ejercitos ejercitos = new Ejercitos(3);
-        ejercitos.turnos(true);
-    }
-
     static Scanner scanner = new Scanner(System.in);
     int elementos;
     Bestia[] bestias;
@@ -53,11 +46,11 @@ public class Ejercitos
     {
         if(caso == 0)
         {
-            return new Orco("Orco" + indice);
+            return new Orco("Orco-" + indice);
         }
         if(caso == 1)
         {
-            return new Trasgo("Trasgo" + indice);
+            return new Trasgo("Trasgo-" + indice);
         }
         return null;
     }
@@ -66,15 +59,15 @@ public class Ejercitos
     {
         if(caso == 0)
         {
-            return new Elfo("Elfo" + indice);
+            return new Elfo("Elfo-" + indice);
         }
         if(caso == 1)
         {
-            return new Hobbit("Hobbit" + indice);
+            return new Hobbit("Hobbit-" + indice);
         }
         if(caso == 2)
         {
-            return new Humano("Humano" + indice);
+            return new Humano("Humano-" + indice);
         }
         return null;
     }
@@ -102,13 +95,13 @@ public class Ejercitos
             } 
             else 
             {
-                System.out.println("[?] Turno de ejercito de heroes");
+                System.out.println("\n[?] Turno de ejercito de heroes");
                 turnoHeroe();
                 bestiasVivas = bestiasVivas();
                 heroesVivos = heroesVivos();
                 if(0 != bestiasVivas | 0 != heroesVivos)
                 {
-                    System.out.println("[?] Turno de ejercito de bestias");
+                    System.out.println("\n[?] Turno de ejercito de bestias");
                     turnoBestia();
                     bestiasVivas = bestiasVivas();
                     heroesVivos = heroesVivos();

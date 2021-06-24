@@ -17,7 +17,7 @@ public class Trasgo extends Bestia
         if(personaje instanceof Hobbit)
         {
             int ataqueHobbit = personaje.ataque() - 5;
-            System.out.println("  (" + ataqueHobbit + ") " + personaje.getNombre() + ", (" + resistencia + ") " + nombre);
+            System.out.println("  " + personaje.getNombre() + ": " + ataqueHobbit + ", " + nombre + ": " + resistencia);
             if(resistencia < ataqueHobbit)
             {
                 danio(ataqueHobbit);
